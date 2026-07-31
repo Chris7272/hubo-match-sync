@@ -43,7 +43,7 @@ export async function parseLiga(htmlFile, outputFile) {
 
     const html = await fs.readFile(htmlFile, "utf8");
 
-    const key = '"games":[';
+   const key = '\\"games\\":[';
 
     const pos = html.indexOf(key);
 
