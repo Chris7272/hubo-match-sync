@@ -33,4 +33,4 @@ await fs.writeFile(
     "utf8"
 );
 
-console.log(`Written data/activities.json (${activities.length} activities`);
+console.log(`Written data/activities.json (${activities.length} activities)`);
