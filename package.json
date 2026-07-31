@@ -7,6 +7,7 @@
     "clubee": "node src/clubee.js"
   },
   "dependencies": {
-    "playwright": "^1.54.2"
-  }
+  "playwright": "^1.54.2",
+  "cheerio": "^1.1.2"
+}
 }
