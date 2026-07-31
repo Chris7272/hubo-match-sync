@@ -2,6 +2,8 @@ name: Liga Parser
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
 
 permissions:
   contents: read
@@ -21,13 +23,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
       - name: Install Playwright browser
         run: npx playwright install chromium
@@ -38,10 +43,27 @@ jobs:
       - name: Merge activities
         run: npm run merge
 
-      - name: Prepare Pages content
+      - name: Prepare GitHub Pages
         run: |
-          mkdir public
+          mkdir -p public
           cp data/activities.json public/
+
+          cat > public/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <title>HUBO Match Sync</title>
+          </head>
+          <body>
+            <h1>HUBO Match Sync</h1>
+            <p>Available endpoint:</p>
+            <ul>
+              <li><a href="activities.json">activities.json</a></li>
+            </ul>
+          </body>
+          </html>
+          EOF
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
