@@ -43,7 +43,7 @@ export async function parseLiga(htmlFile, outputFile) {
 
     const html = await fs.readFile(htmlFile, "utf8");
 
-   const key = '\\"games\\":[';
+    const key = '\\"games\\":[';
 
     const pos = html.indexOf(key);
 
@@ -55,47 +55,49 @@ export async function parseLiga(htmlFile, outputFile) {
 
     const jsonArray = extractArray(html, arrayStart);
 
-const cleanJson = jsonArray
-    .replace(/\\"/g, '"')
-    .replace(/\\\\/g, '\\');
+    const cleanJson = jsonArray
+        .replace(/\\"/g, '"')
+        .replace(/\\\\/g, "\\");
 
-const games = JSON.parse(cleanJson);
+    const games = JSON.parse(cleanJson);
 
-    console.log(`Found ${games.length} games`);
+    console.log(`Found ${games.length} total games`);
 
-    const result = games.map(g => ({
+    // Alleen HUBO-wedstrijden behouden
+    const huboGames = games.filter(g =>
+        g.team1?.name?.includes("HUBO Handbal") ||
+        g.team2?.name?.includes("HUBO Handbal")
+    );
 
+    console.log(`Found ${huboGames.length} HUBO games`);
+
+    const result = huboGames.map(g => ({
         id: g.id,
-
         date: g.start_date,
+        gameDay: Number(g.game_day),
 
         home: g.team1?.name,
-
         away: g.team2?.name,
 
         venue: g.venue_name,
-
         address: g.venue_address,
-
         zip: g.venue_zip,
-
         city: g.venue_city,
 
-        gameDay: g.game_day,
-
+        competition: g.competition?.name,
         phase: g.phase?.name,
 
-        competition: g.competition?.name,
-
         cancelled: g.cancelled
-
     }));
+
+    // Sorteer op datum
+    result.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     await fs.writeFile(
         outputFile,
-        JSON.stringify(result, null, 2)
+        JSON.stringify(result, null, 2),
+        "utf8"
     );
 
     console.log(`Written ${outputFile}`);
-
 }
