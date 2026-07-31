@@ -1,4 +1,16 @@
-name: Liga Parser
+      - name: Parse Clubee
+        run: npm run clubee
+
+      - name: Merge activities
+        run: npm run merge
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: activities
+          path: |
+            data/liga.html
+            data/liga.json
+            data/activities.jsonname: Liga Parser
 
 on:
   workflow_dispatch:
