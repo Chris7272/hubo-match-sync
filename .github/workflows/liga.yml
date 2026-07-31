@@ -1,4 +1,4 @@
-name: Clubee Parser
+name: Liga Parser
 
 on:
   workflow_dispatch:
