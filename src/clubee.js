@@ -17,13 +17,13 @@ await page.goto(url, {
   timeout: 60000,
 });
 
-// Geef de pagina nog even tijd om volledig te renderen
+// Wacht nog even zodat alle JavaScript uitgevoerd is
 await page.waitForTimeout(3000);
 
 // Haal de volledige HTML op
 const html = await page.content();
 
-// Maak de data-map indien nodig
+// Maak de data-map aan
 await fs.mkdir("data", { recursive: true });
 
 // Bewaar de HTML
@@ -32,20 +32,19 @@ await fs.writeFile("data/liga.html", html);
 console.log("HTML saved.");
 console.log("HTML size:", html.length);
 
-// Zoek naar het eerste voorkomen van "games"
-const pos = html.indexOf("games");
+// Zoek naar venue_name
+const pos = html.indexOf("venue_name");
 
-console.log("\n===== GAMES POSITION =====");
-console.log("games found at:", pos);
+console.log("\n===== VENUE POSITION =====");
+console.log("venue_name found at:", pos);
 
 if (pos === -1) {
-  console.log("The word 'games' was not found in the HTML.");
+  console.log("venue_name not found.");
 } else {
-  console.log("\n===== CONTEXT AROUND 'games' =====\n");
+  const start = Math.max(0, pos - 1000);
+  const end = Math.min(html.length, pos + 7000);
 
-  const start = Math.max(0, pos - 500);
-  const end = Math.min(html.length, pos + 3000);
-
+  console.log("\n===== CONTEXT AROUND venue_name =====\n");
   console.log(html.substring(start, end));
 }
 
