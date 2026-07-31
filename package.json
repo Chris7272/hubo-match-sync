@@ -4,8 +4,9 @@
   "description": "Automatic synchronisation of HUBO Handbal match calendars",
   "type": "module",
   "scripts": {
-    "clubee": "node src/clubee.js"
-  },
+  "clubee": "node src/clubee.js",
+  "merge": "node src/merge.js"
+},
   "dependencies": {
   "playwright": "^1.54.2",
   "cheerio": "^1.1.2"
