@@ -4,11 +4,14 @@
   "description": "Automatic synchronisation of HUBO Handbal match calendars",
   "type": "module",
   "scripts": {
-  "clubee": "node src/clubee.js",
-  "merge": "node src/merge.js"
-},
+    "liga": "node src/parse-liga.js",
+    "heren1": "node src/parse-heren1.js",
+    "dames1": "node src/parse-dames1.js",
+    "j18": "node src/parse-j18.js",
+    "merge": "node src/merge.js"
+  },
   "dependencies": {
-  "playwright": "^1.54.2",
-  "cheerio": "^1.1.2"
-}
+    "playwright": "^1.54.2",
+    "cheerio": "^1.1.2"
+  }
 }
