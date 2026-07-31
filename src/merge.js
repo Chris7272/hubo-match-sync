@@ -11,12 +11,16 @@ async function readJson(file) {
 }
 
 const liga = await readJson("data/liga.json");
-const shl = await readJson("data/shl.json");
+const heren1 = await readJson("data/heren1.json");
+const dames1 = await readJson("data/dames1.json");
+const j18 = await readJson("data/j18.json");
 
 // Alles samenvoegen
 const activities = [
     ...liga,
-    ...shl
+    ...heren1,
+    ...dames1,
+    ...j18
 ];
 
 // Chronologisch sorteren
@@ -29,4 +33,4 @@ await fs.writeFile(
     "utf8"
 );
 
-console.log(`Written data/activities.json (${activities.length} activities)`);
+console.log(`Written data/activities.json (${activities.length} activities`);
