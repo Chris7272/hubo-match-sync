@@ -1,31 +1,15 @@
 import fs from "fs/promises";
-import { chromium } from "playwright";
 
-const url =
-  "https://www.clubee.com/handballbelgium/liga-heren-1-982065v4/leagues/18707/seasons/220";
+const html = await fs.readFile("data/liga.html", "utf8");
 
-console.log("Launching browser...");
+console.log("HTML size:", html.length);
 
-const browser = await chromium.launch({
-  headless: true
-});
+const pos = html.indexOf('"games":');
 
-const page = await browser.newPage();
+console.log("games found:", pos);
 
-console.log("Opening page...");
-await page.goto(url, {
-  waitUntil: "networkidle",
-  timeout: 60000
-});
+if (pos === -1) {
+  throw new Error("games not found");
+}
 
-console.log("Waiting 3 seconds...");
-await page.waitForTimeout(3000);
-
-const html = await page.content();
-
-await fs.mkdir("data", { recursive: true });
-await fs.writeFile("data/liga.html", html);
-
-console.log(`Saved ${html.length} characters`);
-
-await browser.close();
+console.log(html.substring(pos, pos + 500));
