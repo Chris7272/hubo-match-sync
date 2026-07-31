@@ -1,16 +1,4 @@
-      - name: Parse Clubee
-        run: npm run clubee
-
-      - name: Merge activities
-        run: npm run merge
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: activities
-          path: |
-            data/liga.html
-            data/liga.json
-            data/activities.jsonname: Liga Parser
+name: Liga Parser
 
 on:
   workflow_dispatch:
@@ -31,9 +19,16 @@ jobs:
       - name: Install Playwright browser
         run: npx playwright install chromium
 
-      - run: npm run clubee
+      - name: Parse Clubee
+        run: npm run clubee
+
+      - name: Merge activities
+        run: npm run merge
 
       - uses: actions/upload-artifact@v4
         with:
-          name: liga-html
-          path: data/liga.html
+          name: activities
+          path: |
+            data/liga.html
+            data/liga.json
+            data/activities.json
