@@ -55,7 +55,11 @@ export async function parseLiga(htmlFile, outputFile) {
 
     const jsonArray = extractArray(html, arrayStart);
 
-    const games = JSON.parse(jsonArray);
+const cleanJson = jsonArray
+    .replace(/\\"/g, '"')
+    .replace(/\\\\/g, '\\');
+
+const games = JSON.parse(cleanJson);
 
     console.log(`Found ${games.length} games`);
 
