@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Liga",
+    "type": "clubee",
+    "url": "https://www.clubee.com/handballbelgium/liga-heren-1-982065v4/leagues/18707/seasons/220"
+  },
+  {
+    "name": "Heren 1 Nationale",
+    "type": "clubee",
+    "url": "https://www.clubee.com/handballbelgium/first-division-m--982001v4/leagues/18702/seasons/220"
+  },
+  {
+    "name": "Dames 1 Nationale",
+    "type": "clubee",
+    "url": "https://www.clubee.com/handballbelgium/first-division-f--982002v4/leagues/18704/seasons/220"
+  },
+  {
+    "name": "J18",
+    "type": "clubee",
+    "url": "https://www.clubee.com/handballbelgium/u18-m--982069v4/leagues/18718/seasons/220"
+  },
+  {
+    "name": "SHL",
+    "type": "shl",
+    "url": "https://superhandballeague.com/competitie-programma/"
+  }
+]
