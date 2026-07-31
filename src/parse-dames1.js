@@ -1,10 +1,10 @@
-import { download } from "./download.js";
+import { downloadPage } from "./download.js";
 import { parseLiga } from "./clubee.js";
 
 const url =
   "https://www.clubee.com/handballbelgium/first-division-f--982002v4/leagues/18704/seasons/220";
 
-await download(
+await downloadPage(
   url,
   "data/dames1.html"
 );
