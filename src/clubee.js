@@ -17,33 +17,36 @@ await page.goto(url, {
   timeout: 60000,
 });
 
-// Geef JavaScript nog even tijd
+// Geef de pagina nog even tijd om volledig te renderen
 await page.waitForTimeout(3000);
 
-// Bewaar de volledige HTML
+// Haal de volledige HTML op
 const html = await page.content();
 
+// Maak de data-map indien nodig
 await fs.mkdir("data", { recursive: true });
+
+// Bewaar de HTML
 await fs.writeFile("data/liga.html", html);
 
 console.log("HTML saved.");
 console.log("HTML size:", html.length);
 
-const searches = [
-  '"games":',
-  '"games"',
-  "games",
-  "__NEXT_DATA__",
-  "__next_f",
-  "Sporthal Vordensteyn",
-  "venue_name",
-  "start_date",
-];
+// Zoek naar het eerste voorkomen van "games"
+const pos = html.indexOf("games");
 
-console.log("\n===== SEARCH RESULTS =====");
+console.log("\n===== GAMES POSITION =====");
+console.log("games found at:", pos);
 
-for (const s of searches) {
-  console.log(`${s}: ${html.indexOf(s)}`);
+if (pos === -1) {
+  console.log("The word 'games' was not found in the HTML.");
+} else {
+  console.log("\n===== CONTEXT AROUND 'games' =====\n");
+
+  const start = Math.max(0, pos - 500);
+  const end = Math.min(html.length, pos + 3000);
+
+  console.log(html.substring(start, end));
 }
 
 await browser.close();
