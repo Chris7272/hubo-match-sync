@@ -37,8 +37,17 @@ jobs:
       - name: Install Playwright browser
         run: npx playwright install chromium
 
-      - name: Parse Clubee
-        run: npm run clubee
+      - name: Parse Liga
+        run: npm run liga
+
+      - name: Parse Heren 1
+        run: npm run heren1
+
+      - name: Parse Dames 1
+        run: npm run dames1
+
+      - name: Parse J18
+        run: npm run j18
 
       - name: Merge activities
         run: npm run merge
