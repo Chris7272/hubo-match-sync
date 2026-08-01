@@ -39,7 +39,7 @@ function extractArray(text, startPos) {
     throw new Error("Games array not closed.");
 }
 
-export async function parseLiga(htmlFile, outputFile, team) {
+export async function parseClubee(htmlFile, outputFile, team) {
 
     const html = await fs.readFile(htmlFile, "utf8");
 
