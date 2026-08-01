@@ -11,7 +11,8 @@ await downloadPage(
 
 await parseLiga(
     "data/liga.html",
-    "data/liga.json"
+    "data/liga.json",
+    "Liga"
 );
 
 console.log("Finished.");
