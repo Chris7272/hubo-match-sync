@@ -9,7 +9,7 @@ await downloadPage(
   "data/heren1.html"
 );
 
-await parseLiga(
+await parseClubee(
     "data/heren1.html",
     "data/heren1.json",
     "Heren 1"
