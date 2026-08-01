@@ -60,6 +60,14 @@ export async function parseLiga(htmlFile, outputFile, team) {
         .replace(/\\\\/g, "\\");
 
     const games = JSON.parse(cleanJson);
+ 
+    console.log("=== Eerste 10 wedstrijden ===");
+
+games.slice(0, 10).forEach(g => {
+    console.log(
+        `${g.team1?.name}  -  ${g.team2?.name}`
+    );
+});
 
     console.log(`Found ${games.length} total games`);
 
