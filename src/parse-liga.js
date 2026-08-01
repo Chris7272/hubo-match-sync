@@ -39,7 +39,7 @@ function extractArray(text, startPos) {
     throw new Error("Games array not closed.");
 }
 
-export async function parseLiga(htmlFile, outputFile) {
+export async function parseLiga(htmlFile, outputFile, team) {
 
     const html = await fs.readFile(htmlFile, "utf8");
 
@@ -72,6 +72,8 @@ export async function parseLiga(htmlFile, outputFile) {
     console.log(`Found ${huboGames.length} HUBO games`);
 
     const result = huboGames.map(g => ({
+        team,
+
         id: g.id,
         date: g.start_date,
         gameDay: Number(g.game_day),
