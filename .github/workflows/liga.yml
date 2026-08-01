@@ -1,4 +1,4 @@
-name: Liga Parser
+name: HUBO Match Sync
 
 on:
   workflow_dispatch:
