@@ -1,5 +1,5 @@
 import { downloadPage } from "./download.js";
-import { parseLiga } from "./parse-liga.js";
+import { parseClubee } from "./parse-clubee.js";
 
 const url =
   "https://www.clubee.com/handballbelgium/first-division-m--982001v4/leagues/18702/seasons/220";
