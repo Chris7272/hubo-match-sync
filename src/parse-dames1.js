@@ -10,8 +10,9 @@ await downloadPage(
 );
 
 await parseLiga(
-  "data/dames1.html",
-  "data/dames1.json"
+    "data/dames1.html",
+    "data/dames1.json",
+    "Dames 1"
 );
 
 console.log("Finished.");
