@@ -26,10 +26,17 @@ const activities = [
 // Chronologisch sorteren
 activities.sort((a, b) => new Date(a.date) - new Date(b.date));
 
+// Resultaat
+const output = {
+    generated: new Date().toISOString(),
+    count: activities.length,
+    activities
+};
+
 // Wegschrijven
 await fs.writeFile(
     "data/activities.json",
-    JSON.stringify(activities, null, 2),
+    JSON.stringify(output, null, 2),
     "utf8"
 );
 
