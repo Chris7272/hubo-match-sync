@@ -1,5 +1,5 @@
 import { downloadPage } from "./download.js";
-import { parseLiga } from "./parse-liga.js";
+import { parseClubee } from "./parse-clubee.js";
 
 const url =
 "https://www.clubee.com/handballbelgium/liga-heren-1-982065v4/leagues/18707/seasons/220";
