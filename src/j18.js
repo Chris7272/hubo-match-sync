@@ -2,7 +2,8 @@ import { downloadPage } from "./download.js";
 import { parseClubee } from "./parse-clubee.js";
 
 const url =
-  "https://www.clubee.com/handballbelgium/u18-m--982070v4/leagues/18738/seasons/220";
+  "https://www.clubee.com/handballbelgium/u18-m--982069v4/leagues/18718/seasons/220";
+
 
 await downloadPage(
   url,
