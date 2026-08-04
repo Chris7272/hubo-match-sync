@@ -331,5 +331,39 @@
     "phase": "Voorbereiding",
     "cancelled": false,
     "description": "Ambiorixcup"
-  }
+  },
+  {
+  "team": "Dames 1",
+  "type": "tournament",
+  "id": "event-supercup-dames-2026",
+  "date": "2026-08-29T16:30:00+02:00",
+  "gameDay": 0,
+  "home": "HUBO Handbal",
+  "away": "Handbal Sint-Truiden",
+  "venue": "Sporthal Alverberg",
+  "address": "",
+  "zip": "",
+  "city": "Hasselt",
+  "competition": "Supercup",
+  "phase": "Finale",
+  "cancelled": false,
+  "description": "Belgische Supercup 2026"
+},
+{
+  "team": "SHL",
+  "type": "tournament",
+  "id": "event-supercup-heren-2026",
+  "date": "2026-08-29T20:15:00+02:00",
+  "gameDay": 0,
+  "home": "Derdaele Sporting Pelt",
+  "away": "HUBO Handbal",
+  "venue": "Sporthal Alverberg",
+  "address": "",
+  "zip": "",
+  "city": "Hasselt",
+  "competition": "Supercup",
+  "phase": "Finale",
+  "cancelled": false,
+  "description": "Belgische Supercup 2026"
+}
 ]
