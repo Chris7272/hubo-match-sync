@@ -6,7 +6,7 @@ on:
     - cron: "0 3 * * *"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -51,6 +51,90 @@ jobs:
 
       - name: Merge activities
         run: npm run merge
+
+      - name: Validate activity count
+        run: |
+          node -e "
+          const fs = require('fs');
+
+          const previous = JSON.parse(
+            fs.readFileSync('data/activities-count.json', 'utf8')
+          );
+
+          const data = JSON.parse(
+            fs.readFileSync('data/activities.json', 'utf8')
+          );
+
+          const current = Array.isArray(data)
+            ? data.length
+            : data.count ?? data.activities?.length;
+
+          if (typeof current !== 'number') {
+            console.error('ERROR: Could not determine activity count.');
+            process.exit(1);
+          }
+
+          console.log('Previous activity count:', previous.count);
+          console.log('Current activity count:', current);
+
+          const change = current - previous.count;
+          const percentage = (change / previous.count) * 100;
+
+          console.log(
+            'Change:',
+            change,
+            '(' + percentage.toFixed(1) + '%)'
+          );
+
+          if (percentage < -20) {
+            console.error(
+              'ERROR: Activity count dropped by more than 20%.'
+            );
+            process.exit(1);
+          }
+
+          console.log('Activity count validation OK.');
+          "
+
+      - name: Update activity count
+        run: |
+          node -e "
+          const fs = require('fs');
+
+          const data = JSON.parse(
+            fs.readFileSync('data/activities.json', 'utf8')
+          );
+
+          const current = Array.isArray(data)
+            ? data.length
+            : data.count ?? data.activities?.length;
+
+          if (typeof current !== 'number') {
+            console.error('ERROR: Could not determine activity count.');
+            process.exit(1);
+          }
+
+          fs.writeFileSync(
+            'data/activities-count.json',
+            JSON.stringify({ count: current }, null, 2) + '\n'
+          );
+
+          console.log('Updated activity count to:', current);
+          "
+
+      - name: Commit updated activity count
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/activities-count.json
+
+          if git diff --cached --quiet; then
+            echo "No change in activity count."
+          else
+            git commit -m "Update activity count"
+            git push
+          fi
 
       - name: Prepare GitHub Pages
         run: |
