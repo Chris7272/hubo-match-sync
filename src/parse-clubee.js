@@ -39,6 +39,22 @@ function extractArray(text, startPos) {
     throw new Error("Games array not closed.");
 }
 
+function normalizeVenue(venue) {
+    if (!venue) return "";
+
+    const normalized = venue.trim().toLowerCase();
+
+    if (normalized.includes("alverberg")) {
+        return "Alverberg";
+    }
+
+    if (normalized.includes("eburons")) {
+        return "Eburons Dome";
+    }
+
+    return venue.trim();
+}
+
 export async function parseClubee(htmlFile, outputFile, team) {
 
     const html = await fs.readFile(htmlFile, "utf8");
@@ -60,8 +76,7 @@ export async function parseClubee(htmlFile, outputFile, team) {
         .replace(/\\\\/g, "\\");
 
     const games = JSON.parse(cleanJson);
- 
-    
+
     console.log(`Found ${games.length} total games`);
 
     // Alleen HUBO-wedstrijden behouden
@@ -82,7 +97,7 @@ export async function parseClubee(htmlFile, outputFile, team) {
         home: g.team1?.name,
         away: g.team2?.name,
 
-        venue: g.venue_name,
+        venue: normalizeVenue(g.venue_name),
         address: g.venue_address,
         zip: g.venue_zip,
         city: g.venue_city,
