@@ -80,9 +80,12 @@ export async function parseClubee(htmlFile, outputFile, team) {
     console.log(`Found ${games.length} total games`);
 
     // Alleen HUBO-wedstrijden behouden
-    const huboGames = games.filter(g =>
-        g.team1?.name?.includes("HUBO Handbal") ||
-        g.team2?.name?.includes("HUBO Handbal")
+    const isHuboTeam = name =>
+    name?.toLowerCase().includes("hubo");
+
+const huboGames = games.filter(g =>
+    isHuboTeam(g.team1?.name) ||
+    isHuboTeam(g.team2?.name)
     );
 
     console.log(`Found ${huboGames.length} HUBO games`);
