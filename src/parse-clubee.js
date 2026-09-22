@@ -114,6 +114,9 @@ function normalizeDate(date) {
 export async function parseClubee(htmlFile, outputFile, team) {
 
     const html = await fs.readFile(htmlFile, "utf8");
+    console.log("Contains games:", html.includes("games"));
+console.log("First games position:", html.indexOf("games"));
+console.log("HTML start:", html.substring(0, 1000));
 
     const key = '\\"games\\":[';
 
