@@ -137,6 +137,9 @@ console.log("HTML start:", html.substring(0, 1000));
     const games = JSON.parse(cleanJson);
 
     console.log(`Found ${games.length} total games`);
+    if (games.length === 0) {
+  throw new Error("Clubee returned an empty games array.");
+}
 
     // Alleen HUBO-wedstrijden behouden
     const isHuboTeam = name =>
