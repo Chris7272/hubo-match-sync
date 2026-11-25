@@ -122,7 +122,7 @@
   {
     "team": "SHL",
     "id": "shl-9",
-    "date": "2026-10-31T20:15:00+02:00",
+    "date": "2026-10-31T20:15:00+01:00",
     "gameDay": 9,
     "home": "HUBO Handbal",
     "away": "Besox HBC Izegem",
@@ -137,7 +137,7 @@
   {
     "team": "SHL",
     "id": "shl-10",
-    "date": "2026-11-14T20:15:00+02:00",
+    "date": "2026-11-14T20:15:00+01:00",
     "gameDay": 10,
     "home": "HUBO Handbal",
     "away": "Kras Volendam",
@@ -152,7 +152,7 @@
   {
     "team": "SHL",
     "id": "shl-11",
-    "date": "2026-11-19T20:30:00+02:00",
+    "date": "2026-11-19T20:30:00+01:00",
     "gameDay": 11,
     "home": "Sprimont",
     "away": "HUBO Handbal",
@@ -167,7 +167,7 @@
   {
     "team": "SHL",
     "id": "shl-12",
-    "date": "2026-11-21T20:15:00+02:00",
+    "date": "2026-11-21T20:15:00+01:00",
     "gameDay": 12,
     "home": "HUBO Handbal",
     "away": "HC Vis\u00e9 BM",
@@ -182,7 +182,7 @@
   {
     "team": "SHL",
     "id": "shl-13",
-    "date": "2026-11-28T19:00:00+02:00",
+    "date": "2026-11-28T19:00:00+01:00",
     "gameDay": 13,
     "home": "JD Techniek Hurry Up",
     "away": "HUBO Handbal",
@@ -197,7 +197,7 @@
   {
     "team": "SHL",
     "id": "shl-14",
-    "date": "2026-12-05T20:15:00+02:00",
+    "date": "2026-12-05T20:15:00+01:00",
     "gameDay": 14,
     "home": "KTSV Eupen",
     "away": "HUBO Handbal",
@@ -212,7 +212,7 @@
   {
     "team": "SHL",
     "id": "shl-15",
-    "date": "2026-12-12T20:15:00+02:00",
+    "date": "2026-12-12T20:15:00+01:00",
     "gameDay": 15,
     "home": "HUBO Handbal",
     "away": "Aalsmeer",
@@ -227,7 +227,7 @@
   {
     "team": "SHL",
     "id": "shl-16",
-    "date": "2026-12-19T20:15:00+02:00",
+    "date": "2026-12-19T20:15:00+01:00",
     "gameDay": 16,
     "home": "Sezoens Achilles Bocholt",
     "away": "HUBO Handbal",
@@ -242,7 +242,7 @@
   {
     "team": "SHL",
     "id": "shl-17",
-    "date": "2027-02-06T20:15:00+02:00",
+    "date": "2027-02-06T20:15:00+01:00",
     "gameDay": 17,
     "home": "HUBO Handbal",
     "away": "Healthcare WHC Hercules",
@@ -257,7 +257,7 @@
   {
     "team": "SHL",
     "id": "shl-18",
-    "date": "2027-02-13T20:15:00+02:00",
+    "date": "2027-02-13T20:15:00+01:00",
     "gameDay": 18,
     "home": "Humby Bevo HC",
     "away": "HUBO Handbal",
@@ -272,7 +272,7 @@
   {
     "team": "SHL",
     "id": "shl-19",
-    "date": "2027-02-20T20:15:00+02:00",
+    "date": "2027-02-20T20:15:00+01:00",
     "gameDay": 19,
     "home": "HUBO Handbal",
     "away": "Van Mossel MG Tachos",
@@ -287,7 +287,7 @@
   {
     "team": "SHL",
     "id": "shl-20",
-    "date": "2027-02-27T18:00:00+02:00",
+    "date": "2027-02-27T18:00:00+01:00",
     "gameDay": 20,
     "home": "Derdaele Sporting Pelt",
     "away": "HUBO Handbal",
@@ -302,7 +302,7 @@
   {
     "team": "SHL",
     "id": "shl-21",
-    "date": "2027-03-06T20:15:00+02:00",
+    "date": "2027-03-06T20:15:00+01:00",
     "gameDay": 21,
     "home": "HUBO Handbal",
     "away": "DFS Arnhem",
@@ -317,7 +317,7 @@
   {
     "team": "SHL",
     "id": "shl-22",
-    "date": "2027-03-20T20:15:00+02:00",
+    "date": "2027-03-20T20:15:00+01:00",
     "gameDay": 22,
     "home": "Besox HC Izegem",
     "away": "HUBO Handbal",
